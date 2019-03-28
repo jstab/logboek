@@ -58,6 +58,7 @@ class LogboekController extends AbstractController
     {
         if ($this->security->isGranted('ROLE_SUPER_ADMIN')) {
             $logboek = new Logboek();
+            $logboek->setDatum(new \DateTime('now'));
             $form = $this->createForm(LogboekType::class, $logboek);
             $form->handleRequest($request);
 
